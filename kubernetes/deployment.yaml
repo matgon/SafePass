@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safepass-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: safepass
+  template:
+    metadata:
+      labels:
+        app: safepass
+    spec:
+      containers:
+      - name: safepass
+        image: safepass
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
